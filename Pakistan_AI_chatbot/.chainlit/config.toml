@@ -1,0 +1,67 @@
+[project]
+# Whether to enable telemetry (default: false). No personal data is collected.
+enable_telemetry = false
+
+# List of environment variables to be provided by each user to use the app.
+user_env = []
+
+# Duration (in seconds) during which the session is saved when the connection is lost
+session_timeout = 3600
+
+# Duration (in seconds) of the user session expiry
+user_session_timeout = 1296000  # 15 days
+
+# Enable third parties caching (e.g., LangChain cache)
+cache = false
+
+# Authorized origins
+allow_origins = ["*"]
+
+[features]
+# Process and display HTML in messages. This can be a security risk (see warning)
+unsafe_allow_html = false
+latex = false
+user_message_autoscroll = true
+auto_tag_thread = true
+edit_message = true
+
+[features.spontaneous_file_upload]
+enabled = true
+accept = ["*/*"]
+max_files = 20
+max_size_mb = 500
+
+[features.audio]
+sample_rate = 24000
+
+[features.mcp.sse]
+enabled = true
+
+[features.mcp.stdio]
+enabled = true
+allowed_executables = ["npx", "uvx"]
+
+[UI]
+# Branding
+name = "🇵🇰 Pakistan AI Chatbot"
+default_theme = "light"
+default_sidebar_state = "open"
+
+# Visuals
+logo_file_url = "https://upload.wikimedia.org/wikipedia/commons/3/32/Flag_of_Pakistan.svg"
+default_avatar_file_url = "https://upload.wikimedia.org/wikipedia/commons/3/32/Flag_of_Pakistan.svg"
+
+# Custom styles
+custom_css = "/public/custom.css"
+cot = "full"
+alert_style = "modern"
+
+# Optional: helpful header link
+[[UI.header_links]]
+name = "Pakistan"
+display_name = "Learn More"
+icon_url = "https://img.icons8.com/color/48/pakistan.png"
+url = "https://en.wikipedia.org/wiki/Pakistan"
+
+[meta]
+generated_by = "2.6.0"
