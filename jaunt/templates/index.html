@@ -1,6 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<<<<<<< HEAD
+<<<<<<< HEAD
+    <meta charset="UTF-8">
+    <title>Jaunt Solution Assistant</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; background: #f4f4f4; }
+        #chatbox { width: 100%; height: 400px; overflow-y: scroll; border: 1px solid #ccc; padding: 10px; background: #fff; margin-bottom: 10px; }
+        #inputForm { display: flex; }
+        #userInput { flex: 1; padding: 10px; }
+        #sendBtn { padding: 10px 20px; }
+        .user { font-weight: bold; color: #007BFF; }
+        .bot { font-weight: bold; color: #28A745; }
+        .message { margin: 5px 0; }
+    </style>
+</head>
+<body>
+    <h1>💬 Jaunt Solutions Chatbot</h1>
+    <div id="chatbox"></div>
+    <form id="inputForm">
+        <input type="text" id="userInput" placeholder="Type your message..." autocomplete="off" />
+        <button type="submit" id="sendBtn">Send</button>
+    </form>
+
+    <script>
+        const chatbox = document.getElementById('chatbox');
+        const inputForm = document.getElementById('inputForm');
+        const userInput = document.getElementById('userInput');
+
+        inputForm.addEventListener('submit', async function (e) {
+            e.preventDefault();
+            const message = userInput.value.trim();
+            if (!message) return;
+
+            appendMessage("You", message, "user");
+            userInput.value = "";
+
+            try {
+                const res = await fetch('/chat', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ input: message })
+                });
+                const data = await res.json();
+                appendMessage("Bot", data.reply, "bot");
+            } catch (err) {
+                appendMessage("Bot", "Something went wrong!", "bot");
+                console.error(err);
+            }
+        });
+
+        function appendMessage(sender, text, className) {
+            const msg = document.createElement('div');
+            msg.classList.add('message');
+            msg.innerHTML = `<span class="${className}">${sender}:</span> ${text}`;
+            chatbox.appendChild(msg);
+            chatbox.scrollTop = chatbox.scrollHeight;
+        }
+    </script>
+=======
+=======
+>>>>>>> 38352b44189e505ef55b8cb247d666451cdd0914
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Jaunt Chatbot</title>
@@ -148,5 +209,9 @@
     }
   </script>
 
+<<<<<<< HEAD
+>>>>>>> 38352b44189e505ef55b8cb247d666451cdd0914
+=======
+>>>>>>> 38352b44189e505ef55b8cb247d666451cdd0914
 </body>
 </html>

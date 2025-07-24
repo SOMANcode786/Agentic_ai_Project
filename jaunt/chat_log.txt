@@ -1,0 +1,58 @@
+User: what service do you offer
+Bot: Jaunt Solutions offers a comprehensive suite of services designed to empower businesses for sustainable growth.  We transform visions into digital reality through the following offerings:
+
+* **ERP Consultancy:**  We help businesses select, implement, and optimize Enterprise Resource Planning systems.
+
+* **Team Augmentation:** We provide skilled professionals to supplement your existing team, addressing short-term or long-term needs.
+
+* **Process Outsourcing:** We handle specific business processes, freeing up your internal resources to focus on core competencies.
+
+* **Business Support & IT Maintenance:** We offer ongoing support and maintenance for your IT infrastructure and business operations.
+
+* **Domain & Email Management:** We manage your domain names and email services, ensuring seamless communication.
+
+* **Software & Mobile App Development:** We design and develop custom software and mobile applications tailored to your specific requirements.
+
+* **Website Development:** We create engaging and effective websites to enhance your online presence.
+
+* **Digital & Social Media Marketing:** We help you leverage digital channels to reach your target audience and grow your brand.
+
+
+If you have a specific need in mind, please let me know and I can provide more details on how Jaunt Solutions can help.
+
+
+User: what is jaunt and what services provide?
+Bot: Jaunt Solutions is a company dedicated to **Transforming Visions into Digital Reality** and **Empowering Businesses For Sustainable Growth**.  We offer a comprehensive suite of services designed to help businesses thrive in the digital age.  These services include:
+
+* **ERP Consultancy:**  We help businesses select, implement, and optimize Enterprise Resource Planning (ERP) systems to improve efficiency and streamline operations.
+
+* **Team Augmentation:** We provide skilled professionals to supplement your existing team, addressing specific project needs or skill gaps.
+
+* **Process Outsourcing:** We handle various business processes, freeing up your internal resources to focus on core competencies.
+
+* **Business Support & IT Maintenance:** We provide ongoing support and maintenance for your business operations and IT infrastructure.
+
+* **Domain & Email Management:** We manage your domain names and email accounts, ensuring seamless communication and online presence.
+
+* **Software & Mobile App Development:** We develop custom software and mobile applications tailored to your specific business requirements.
+
+* **Website Development:** We create professional, user-friendly websites that effectively represent your brand and engage your customers.
+
+* **Digital & Social Media Marketing:** We develop and implement strategies to enhance your online visibility and reach your target audience.
+
+
+In short, Jaunt Solutions provides a wide range of services to help businesses of all sizes achieve their digital transformation goals and foster sustainable growth.  Do you have any specific areas you'd like to know more about?
+
+
+User: hello
+Bot: Hello! Welcome to Jaunt Solutions. How can I assist you today?
+
+
+User: my name is muzammil\
+Bot: It's a pleasure to meet you, Muzammil.  How can Jaunt Solutions assist you today?
+
+
+User: what is my name
+Bot: I do not have access to your personal information, including your name.  To assist you further, please tell me how Jaunt Solutions can help you.
+
+
