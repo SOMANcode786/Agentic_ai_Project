@@ -1,86 +1,108 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<<<<<<< HEAD
-<<<<<<< HEAD
-    <meta charset="UTF-8">
-    <title>Jaunt Solution Assistant</title>
-    <style>
-        body { font-family: Arial, sans-serif; padding: 20px; background: #f4f4f4; }
-        #chatbox { width: 100%; height: 400px; overflow-y: scroll; border: 1px solid #ccc; padding: 10px; background: #fff; margin-bottom: 10px; }
-        #inputForm { display: flex; }
-        #userInput { flex: 1; padding: 10px; }
-        #sendBtn { padding: 10px 20px; }
-        .user { font-weight: bold; color: #007BFF; }
-        .bot { font-weight: bold; color: #28A745; }
-        .message { margin: 5px 0; }
-    </style>
-</head>
-<body>
-    <h1>💬 Jaunt Solutions Chatbot</h1>
-    <div id="chatbox"></div>
-    <form id="inputForm">
-        <input type="text" id="userInput" placeholder="Type your message..." autocomplete="off" />
-        <button type="submit" id="sendBtn">Send</button>
-    </form>
-
-    <script>
-        const chatbox = document.getElementById('chatbox');
-        const inputForm = document.getElementById('inputForm');
-        const userInput = document.getElementById('userInput');
-
-        inputForm.addEventListener('submit', async function (e) {
-            e.preventDefault();
-            const message = userInput.value.trim();
-            if (!message) return;
-
-            appendMessage("You", message, "user");
-            userInput.value = "";
-
-            try {
-                const res = await fetch('/chat', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ input: message })
-                });
-                const data = await res.json();
-                appendMessage("Bot", data.reply, "bot");
-            } catch (err) {
-                appendMessage("Bot", "Something went wrong!", "bot");
-                console.error(err);
-            }
-        });
-
-        function appendMessage(sender, text, className) {
-            const msg = document.createElement('div');
-            msg.classList.add('message');
-            msg.innerHTML = `<span class="${className}">${sender}:</span> ${text}`;
-            chatbox.appendChild(msg);
-            chatbox.scrollTop = chatbox.scrollHeight;
-        }
-    </script>
-=======
-=======
->>>>>>> 38352b44189e505ef55b8cb247d666451cdd0914
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Jaunt Chatbot</title>
-  <style>
-    * {
+ <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+ <style>
+  * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
 
-    body {
-      background: #f0f2f5;
-      display: flex;
-      flex-direction: column;
-      height: 100vh;
-      justify-content: center;
-      align-items: center;
-    }
+ body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+    transition: all 0.3s ease-in-out;
+
+}
+
+.nav {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  /* background-color: #f8f9fa; */
+    justify-content: space-around;
+    transition: all 0.3s ease-in-out;
+    
+}
+
+.logo img {
+  height: 70px;
+  border-radius: 50%;
+  border: 2px solid black;
+}
+
+.navthings {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+}
+
+.navthings li {
+  position: relative;
+  margin: 0 10px;
+
+}
+
+.navthings a {
+  color: #000;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 14px;
+  padding: 10px 15px;
+  display: block;
+}
+
+.navthings a:hover {
+  background-color: #ddd;
+  border-radius: 5px;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: -10%;
+  background-color: #6c757d;
+  border-radius: 8px;
+  min-width: 150px;
+  padding: 0;
+  z-index: 1000;
+  text-decoration: none;
+}
+
+.dropdown-menu li {
+  margin: 0;
+  list-style: none;
+}
+
+.dropdown-menu a {
+  color: white;
+  padding: 10px 15px;
+}
+
+.dropdown-menu a:hover {
+  background-color: #5a6268;
+}
+
+/* Show dropdown on hover */
+.nav-item:hover .dropdown-menu {
+  display: block;
+}
+
+.icontheme{
+    width: 30px;
+    height: auto;
+    transition: all 0.3s ease-in-out;
+}
 
     .chat-container {
       width: 90%;
@@ -107,6 +129,8 @@
       padding: 16px;
       overflow-y: auto;
       background-color: #f9f9f9;
+      display: flex;
+      flex-direction: column;
     }
 
     .message {
@@ -158,20 +182,122 @@
     .chat-input button:hover {
       background: #357abd;
     }
-  </style>
+ </style>
 </head>
 <body>
+ <nav class="nav">
+    <div class="logo">
+      <img src="assets/icons/icon-192x192.png" alt="Logo">
+    </div>
+    <ul class="navthings">
+      <li><a class="theme1" href="#">Home</a></li>
+      <li><a class="theme1" href="#">About</a></li>
+      <li><a class="theme1" href="#">Services</a></li>
+      <li class="nav-item">
+        <a  class="nav-link theme1" href="#">Products</a>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="#">SAP Business One</a></li>
+          <li><a class="dropdown-item" href="#">ASAB ERP</a></li>
+          <li><a class="dropdown-item" href="#">Oracle NetSuite</a></li>
+        </ul>
+      </li>
+    </ul>
+    <div id="dark-theme"><img class="icontheme" src="" alt="dark"></div>
+  </nav>
+  <!-- Floating Chat Button -->
+  <div id="chatToggleBtn" onclick="toggleChat()" title="Chat with us">💬</div>
 
-  <div class="chat-container">
-    <div class="chat-header">🤖 Jaunt Chatbot</div>
-    <div id="chatBox"></div>
-    <div class="chat-input">
-      <input type="text" id="userInput" placeholder="Type your message..." onkeydown="if(event.key === 'Enter') sendMessage()" />
-      <button onclick="sendMessage()">Send</button>
+  <!-- Chat Modal -->
+  <div id="chatModal" class="modal">
+    <div class="chat-container">
+      <div class="chat-header">
+        <img class="favicon" src="https://portal.jauntsolutions.com/favicon.png" alt="img"> Jaunt Chatbot
+        <span class="close-btn" onclick="toggleChat()">×</span>
+      </div>
+      <div id="chatBox"></div>
+      <div class="chat-input">
+        <input type="text" id="userInput" placeholder="Type your message..." onkeydown="if(event.key === 'Enter') sendMessage()" />
+        <button onclick="sendMessage()">Send</button>
+      </div>
     </div>
   </div>
 
+  <style>
+  #chatToggleBtn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #4a90e2;
+  color: white;
+  padding: 15px;
+  border-radius: 50%;
+  font-size: 24px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  z-index: 1000;
+}
+
+.favicon {
+  width: 40px;
+  border: 1px solid white;
+  border-radius: 50%;
+  padding: 2px;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 80%;
+  margin-top: 5%;
+  margin-right: 2%;
+  /* background-color: rgba(0,0,0,0.3); */
+  justify-content: flex-end; /* Align content to right */
+  align-items: flex-end; /* Optional: stick to bottom or use center */
+}
+
+.modal.show {
+  display: flex;
+}
+
+.chat-container {
+  width: 90%;
+  max-width: 400px;
+  height: 100%;
+  background: #ffffff;
+  border-radius: 12px 0 0 12px;
+  box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.chat-header {
+  padding: 10px;
+  background-color: #4a90e2;
+  color: white;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.chat-header .close-btn {
+  font-size: 24px;
+  cursor: pointer;
+}
+
+  </style>
+
   <script>
+    function toggleChat() {
+      const modal = document.getElementById("chatModal");
+      modal.classList.toggle("show");
+    }
+
     async function sendMessage() {
       const inputField = document.getElementById("userInput");
       const message = inputField.value.trim();
@@ -179,10 +305,18 @@
       inputField.value = "";
 
       const chatBox = document.getElementById("chatBox");
+
       const userMsg = document.createElement("div");
       userMsg.className = "message user-message";
       userMsg.textContent = message;
       chatBox.appendChild(userMsg);
+      chatBox.scrollTop = chatBox.scrollHeight;
+
+      // Show "Bot is typing..." placeholder
+      const typingMsg = document.createElement("div");
+      typingMsg.className = "message bot-message";
+      typingMsg.textContent = "  Bot is typing...";   
+      chatBox.appendChild(typingMsg);
       chatBox.scrollTop = chatBox.scrollHeight;
 
       try {
@@ -193,12 +327,15 @@
         });
 
         const data = await response.json();
+        chatBox.removeChild(typingMsg);
+
         const botMsg = document.createElement("div");
         botMsg.className = "message bot-message";
         botMsg.textContent = data.reply;
         chatBox.appendChild(botMsg);
         chatBox.scrollTop = chatBox.scrollHeight;
       } catch (err) {
+        chatBox.removeChild(typingMsg);
         const errorMsg = document.createElement("div");
         errorMsg.className = "message bot-message";
         errorMsg.textContent = "⚠️ Error: Unable to get response.";
@@ -209,9 +346,6 @@
     }
   </script>
 
-<<<<<<< HEAD
->>>>>>> 38352b44189e505ef55b8cb247d666451cdd0914
-=======
->>>>>>> 38352b44189e505ef55b8cb247d666451cdd0914
 </body>
+
 </html>
